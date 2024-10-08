@@ -1,0 +1,107 @@
+ 
+1. List all clients:
+  Use this API to list all the clients in your system.
+
+  - **Request**:
+    ```
+    GET /api/clients/
+    ```
+  - **Postman**: 
+    1. Open Postman.
+    2. Set the method to `GET` and URL to `http://127.0.0.1:8000/api/clients/`.
+    3. Click "Send".
+
+
+2. Create a new client:
+  This allows you to create a new client in the system.
+
+  - **Request**:
+    ```
+    POST /api/clients/
+    ```
+  - **Payload**:
+    ```json
+    {
+      "client_name": "Company A"
+    }
+    ```
+  - **Postman**:
+    1. Set the method to `POST` and URL to `http://127.0.0.1:8000/api/clients/`.
+    2. In the "Body" tab, select "raw" and set it to `JSON`, then enter the payload above.
+    3. Click "Send".
+
+
+
+3. Retrieve client info:
+  Retrieve a specific client by ID, including the projects assigned to that client.
+
+  - **Request**:
+    ```
+    GET /api/clients/{id}/
+    ```
+  - **Postman**:
+    1. Set the method to `GET` and URL to `http://127.0.0.1:8000/api/clients/1/` (replace `1` with the desired client ID).
+    2. Click "Send".
+
+
+4. Update client info:
+  Update a client’s name.
+
+  - **Request**:
+    ```
+    PUT /api/clients/{id}/
+    ```
+  - **Payload**:
+    ```json
+    {
+      "client_name": "Updated Company Name"
+    }
+    ```
+  - **Postman**:
+    1. Set the method to `PUT` and URL to `http://127.0.0.1:8000/api/clients/1/`.
+    2. In the "Body" tab, enter the JSON payload.
+    3. Click "Send".
+
+
+
+5. Delete a client:
+  Delete a client by its ID.
+
+  - **Request**:
+    ```
+    DELETE /api/clients/{id}/
+    ```
+  - **Postman**:
+    1. Set the method to `DELETE` and URL to `http://127.0.0.1:8000/api/clients/1/`.
+    2. Click "Send".
+
+
+6. Create a new project for a client:
+  Assign users to a new project for a particular client.
+
+  - **Request**:
+    ```
+    POST /api/clients/{id}/add_project/
+    ```
+  - **Payload**:
+    ```json
+    {
+      "project_name": "New Project",
+      "users": [1, 2]  # Replace with valid user IDs
+    }
+    ```
+  - **Postman**:
+    1. Set the method to `POST` and URL to `http://127.0.0.1:8000/api/clients/1/add_project/`.
+    2. Enter the JSON payload in the body and click "Send".
+
+
+7. List all projects assigned to the logged-in user:
+  Retrieve all projects that are assigned to the logged-in user.
+
+  - **Request**:
+    ```
+    GET /api/projects/
+    ```
+  - **Postman**:
+    1. Set the method to `GET` and URL to `http://127.0.0.1:8000/api/projects/`.
+    2. Click "Send".
